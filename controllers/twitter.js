@@ -14,7 +14,9 @@ module.exports = function(app) {
     stream.on('data', function (data) {
       var tweet = data.text;
 
-      if(tweet.match(/))
+      if(tweet.match(^#nowplaying ([^\–]+) – ([^\–]+) on #Spotify[\s]?(.+)$)) {
+        console.log(tweet.text);
+      }
     });
   });
 
