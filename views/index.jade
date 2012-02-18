@@ -2,16 +2,17 @@
 html(lang="en")
   head
     title= title
-    link(rel='stylesheet', href='/public/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/public/bootstrap/css/bootstrap-responsive.min.css')
-    link(rel='stylesheet', href='/public/css/styles.css')    
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/css/styles.css')    
   body
     header
       nav.navbar.navbar-fixed-top
     .content.container
       h1 Full Top 40
       ol
-        li.track.well.span2 track template
-        li.track.well.span2 track template
+        li.track.well.span2 
+          each track in tracks
+            include track
     footer Copyright
     script(type='text/javascript', src='/public/bootstrap/js/bootstrap.min.js')

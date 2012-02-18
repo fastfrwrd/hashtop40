@@ -41,11 +41,21 @@ app.db = mongoose.connect('mongodb://tuckbick:hackdayftw123@staff.mongohq.com:10
 app.controllers = require('./controllers')(app);
 
 // Routes
-app.get("/", function(req, res){
 
+//dummy tracks
+var topTracks = [
+  {'4VRLGNMTfymoYzD4dLAsNb':{
+	'songname':'Somebody That I Used To Know',
+	'artistname':'Gotye',
+	'coverimage':'http://placekitten.com/100/100',
+  }},
+];
+
+app.get("/", function(req, res){
   // Render the layout
   res.render('index', {
-    title: "Twitter Top 40"
+    title: "Twitter Top 40",
+    tracks: topTracks,
   });
 });
 
