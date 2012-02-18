@@ -12,17 +12,21 @@ window.interactions = window.interactions || (function ($) {
     };
     
     var populateTracks = function(tracks) {
-    	var list = $('<ol></ol>'),
-    		html = $.ajax({
-    			data: tracks
-    		}); //build from jade
-    	
-		// populate html with track infos
-		if($('ol').length) {
-			$('ol').replaceWith(list);
-		} else {
-			$('.content').html(list)
+    
+		var tracks = $.map(tracks, function(n, i) {
+			return { 
+			  songurl:"http://open.spotify.com", //replace with twitter url
+			  coverurl:n.image[1]['#text'],
+			  trackname:n.name,
+			  artistname:n.artist.name,
+			}
+		});
+		console.log(tracks);
+		var $list = $('<ol></ol>');
+		for(i in tracks) {
+		  $list.append('<li class="track well span2"><div class="album-art"><a href="' + tracks[i].songurl + '"><img src="' + tracks[i].coverurl + '" /><img src="/img/controls.png" /></a><div class="track-name"> ' + tracks[i].trackname + '</div><div class="artist-name">' + tracks[i].artistname + '</div></div></li>');
 		}
+		$('ol').replaceWith($list);
 	};
 
 
@@ -30,12 +34,22 @@ window.interactions = window.interactions || (function ($) {
 		// iterate through tracks
 		// id compare
 		// flip em baby!
-	}
+	};
+	
+	var formatTrack = function(track) {
+		return { 
+		  songurl:"http://open.spotify.com", //replace with twitter url
+		  coverurl:track.image[1]['#text'],
+		  trackname:track.name,
+		  artistname:track.artist.name,
+		}
+	};
 
     return {
         bind: bind,
         populateTracks: populateTracks,
         updateTracks: updateTracks,
+        formatTrack: formatTrack
     };
 
 })(jQuery);
