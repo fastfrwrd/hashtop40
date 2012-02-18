@@ -1,10 +1,11 @@
 module.exports = function(app) {
 
-  var app.socket = require('socket.io').listen(app);
-  
+  app.socket = require('socket.io').listen(app);
+
   var modules = {
-    socket: require('sockets.js')(app)
+    socket: require('./sockets')(app),
+    twitter: require('./twitter')(app)
   };
 
   return modules;
-}
+};

@@ -1,3 +1,8 @@
 module.export = function(app) {
-  song: require(song
+
+  var models = {
+    Song: require('Song')(app)
+  };
+
+  return models;
 };

@@ -1,9 +1,6 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express');
+var express = require('express'),
+    EventEmitter = require('events'),
+    mongoose = require('mongoose');
 
 var app = module.exports = express.createServer();
 
@@ -19,16 +16,21 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure('production', function(){
-  app.use(express.errorHandler()); 
+  app.use(express.errorHandler());
 });
 
+
+//Mongo connect
+app.db = mongoose.connect('mongodb://localhost/top-music');
+
 // Routes
+app.routes = require('./controllers');
 
-app.routes = require('routes/');
 
+//Init
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
