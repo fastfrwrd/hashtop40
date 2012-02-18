@@ -45,14 +45,38 @@ app.EventEmitter = new EventEmitter();
 app.controllers = require('./controllers')(app);
 
 // Routes
-app.get("/", function(req, res){
 
+//dummy tracks
+var topTracks = [
+  { songurl:'http://open.spotify.com/',
+    coverurl:'http://placekitten.com/100/100',
+	trackname:'Somebody That I Used To Know',
+	artistname:'Gotye',
+  },
+];
+var copyDate = new Date();
+var copyright = "&copy; Copyright " + copyDate.getFullYear() + ".";
+app.get("/", function(req, res){
   // Render the layout
   res.render('index', {
-    title: "Twitter Top 40"
+    title: "twitterfy",
+    tracks: topTracks,
+    copyright: copyright,
   });
 });
 
+app.get("/populate", function(req, res){
+  // Render the layout
+  res.render('populate', {
+    tracks: req.tracks,
+  });
+});
+
+app.get("/track", function(req, res){
+  res.render('populate', {
+    tracks: req.track,
+  });
+});
 
 //Init
 app.listen(3000);
