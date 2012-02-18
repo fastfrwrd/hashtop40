@@ -2,26 +2,43 @@
 html(lang="en")
   head
     title= title
+    style
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
-    link(rel='stylesheet', href='/css/styles.css')    
+    link(rel='stylesheet', href='/css/styles.css')  
   body
     header
       nav.navbar.navbar-fixed-top
         .navbar-inner
-          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+          .container
+            a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.brand(href='#') Twitter Top 40
+            .nav-collapse
+              .nav
+                li
+                  form.navbar-search.pull-left(action='')
+                    input.search-query.span2(type='text', placeholder='Filter by genre')
     .content.container
       h1 Full Top 40
       ol
-        li.track.well.span2 track template
-        li.track.well.span2 track template
-    footer Copyright
+        li.track.well.span2 
+          each track in tracks
+            include track
+    footer= copyright
+    script(type='text/javascript', src='/js/jquery.min.js')
+    script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
     script(src='/socket.io/socket.io.js', type='application/javascript')
     script(type='text/javascript', src='/js/sockets.client.js')
-    script(type='text/javascript', src='/js/jquery.min.js')
     script(type='text/javascript', src='/js/jquery.ui.min.js')
     script(type='text/javascript', src='/js/jquery.flip.min.js')
     script(type='text/javascript', src='/js/interactions.js')

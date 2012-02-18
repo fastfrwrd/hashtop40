@@ -10,9 +10,29 @@ window.interactions = window.interactions || (function ($) {
     		});
     	});
     };
+    
+    var populateTracks = function(tracks) {
+    	var list = $('<ol></ol>'),
+    		html = ""; //build from jade
+    	
+		// populate html with track infos
+		if($('ol').length) {
+			$('ol').replaceWith(list);
+		} else {
+			$('.content').html(list)
+		}
+	};
+
+
+	var updateTracks = function(tracks) {
+		// iterate through tracks
+		// id compare
+	}
 
     return {
-        bind: bind
+        bind: bind,
+        populateTracks: populateTracks,
+        updateTracks: updateTracks,
     };
 
 })(jQuery);
