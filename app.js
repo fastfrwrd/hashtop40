@@ -1,7 +1,7 @@
 var express = require('express'),
-    EventEmitter = require('events'),
-    mongoose = require('mongoose'),
-    sys = require("util"),
+    //EventEmitter = require('events'),
+    //mongoose = require('mongoose'),
+    //sys = require("util"),
     app = module.exports = express.createServer();
 
 // Configuration
@@ -9,6 +9,7 @@ var express = require('express'),
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.set('view options', { layout: false });
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -23,7 +24,7 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-var config = {
+/*var config = {
     user: "",
     password: "",
     track: ["#nodetwitter"]};
@@ -66,13 +67,13 @@ app.db = mongoose.connect('mongodb://localhost/top-music');
 
 
 app.routes = require('./controllers');
-
+*/
 // Routes
 app.get("/", function(req, res){
 
   // Render the layout
   res.render('index', {
-    title: "Amy and Steve Wedding"
+    title: "Twitter Top 40"
   });
 });
 
