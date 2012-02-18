@@ -50,12 +50,14 @@ var topTracks = [
 	'coverimage':'http://placekitten.com/100/100',
   }},
 ];
-
+var copyDate = new Date();
+var copyright = "&copy; Copyright " + copyDate.getFullYear();
 app.get("/", function(req, res){
   // Render the layout
   res.render('index', {
     title: "Twitter Top 40",
     tracks: topTracks,
+    copyright: copyright,
   });
 });
 
