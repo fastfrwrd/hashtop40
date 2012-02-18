@@ -44,11 +44,13 @@ app.controllers = require('./controllers')(app);
 
 //dummy tracks
 var topTracks = [
-  {'4VRLGNMTfymoYzD4dLAsNb':{
-	'songname':'Somebody That I Used To Know',
-	'artistname':'Gotye',
-	'coverimage':'http://placekitten.com/100/100',
-  }},
+  {'http://open.spotify.com/':
+    {
+	  'songname':'Somebody That I Used To Know',
+	  'artistname':'Gotye',
+	  'coverimage':'http://placekitten.com/100/100',
+    }
+  },
 ];
 var copyDate = new Date();
 var copyright = "&copy; Copyright " + copyDate.getFullYear();
