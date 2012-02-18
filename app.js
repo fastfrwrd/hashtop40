@@ -55,7 +55,7 @@ var copyright = "&copy; Copyright " + copyDate.getFullYear() + ".";
 app.get("/", function(req, res){
   // Render the layout
   res.render('index', {
-    title: "twitterfy",
+    title: "Twitterfy",
     tracks: topTracks,
     copyright: copyright,
   });
