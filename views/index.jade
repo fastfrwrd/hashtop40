@@ -31,10 +31,16 @@ html(lang="en")
     .content.container
       h1 Full Top 40
       ol
-        li.track.well.span2 
-          each track in tracks
-            include track
+        include populate
     footer= copyright
+      p Legendary programming quad-force: 
+        a(href='http://www.github.com/tuckbick') Tucker Bickler
+        = ", "
+        a(href='http://www.github.com/fastfrwrd') Paul Marbach
+        = ", "
+        a(href='http://www.github.com/vanetix') Matt McFarland
+        = ", and "
+        a(href='http://wwww.github.com/chasiepoo') Chase Coney
     script(type='text/javascript', src='/js/jquery.min.js')
     script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
     script(src='/socket.io/socket.io.js', type='application/javascript')
