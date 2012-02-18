@@ -1,11 +1,22 @@
-module.exports = function(app) {
+module.exports = function(socket) {
 
-  app.socket.on('connection', function(socket) {
+  socket.sockets.on('connection', function(sock) {
     
-    //console.log('asdf\n');
-    // emit all tracks on connection
-    //socket.emit('tweet:all', { tracks: [] })
+    var tracks = { 
+      tracks: [
+        { 
+          '4VRLGNMTfymoYzD4dLAsNb': {
+            'songname':'Somebody That I Used To Know',
+            'artistname':'Gotye',
+            'coverimage':'http://placekitten.com/100/100',
+          }
+        },
+        //more tracks. in order of rank
+      ]
+    };
 
-  });
+    sock.emit('tweets:all', tracks);
+
+  })
 
 };
