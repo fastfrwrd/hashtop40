@@ -53,7 +53,7 @@ var topTracks = [
   },
 ];
 var copyDate = new Date();
-var copyright = "&copy; Copyright " + copyDate.getFullYear();
+var copyright = "&copy; Copyright " + copyDate.getFullYear() + ".";
 app.get("/", function(req, res){
   // Render the layout
   res.render('index', {
