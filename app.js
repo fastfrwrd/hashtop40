@@ -27,8 +27,8 @@ app.configure('production', function(){
 //Mongo connect
 app.db = mongoose.connect('mongodb://localhost/top-music');
 
-// Routes
-app.routes = require('./controllers');
+//Controllers
+app.controllers = require('./controllers')(app);
 
 
 //Init
