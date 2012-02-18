@@ -12,7 +12,9 @@ module.exports = function(app) {
 
   twitter.stream('statuses/filter', { track: '#spotify' }, function(stream) {
     stream.on('data', function (data) {
-      console.log(data.text);
+      var tweet = data.text;
+
+      if(tweet.match(/))
     });
   });
 

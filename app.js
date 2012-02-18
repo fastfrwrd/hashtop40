@@ -1,8 +1,8 @@
 var express = require('express'),
     EventEmitter = require('events'),
-    mongoose = require('mongoose');
-
-var app = module.exports = express.createServer();
+    mongoose = require('mongoose'),
+    sys = require("util"),
+    app = module.exports = express.createServer();
 
 // Configuration
 
@@ -23,12 +23,20 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-
 //Mongo connect
 app.db = mongoose.connect('mongodb://localhost/top-music');
 
 //Controllers
 app.controllers = require('./controllers')(app);
+
+// Routes
+app.get("/", function(req, res){
+
+  // Render the layout
+  res.render('index', {
+    title: "Amy and Steve Wedding"
+  });
+});
 
 
 //Init

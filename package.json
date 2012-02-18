@@ -8,5 +8,6 @@
     , "ntwitter": ">=0.0.1"
     , "mongoose": ">=2.5.7"
     , "socket.io": ">=0.8.7"
+    , "cookies": ">=0.2.1"
   }
 }
