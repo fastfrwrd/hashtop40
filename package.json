@@ -5,7 +5,7 @@
   , "dependencies": {
       "express": ">=2.4.6"
     , "jade": ">= 0.0.1"
-    , "node-twitter": ">=0.2.0"
+    , "node-twitter": ">=0.0.2"
     , "mongoose": ">=2.5.7"
     , "socket.io": ">=0.8.7"
   }
