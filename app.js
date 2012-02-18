@@ -24,6 +24,7 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
+<<<<<<< HEAD
 /*var config = {
     user: "",
     password: "",
@@ -68,6 +69,25 @@ app.db = mongoose.connect('mongodb://localhost/top-music');
 
 app.routes = require('./controllers');
 */
+=======
+//Mongo connect
+/**
+ * To get all the info to login, sign into your MongoHQ account, go to the db you want,
+ * click the "Database Info" tab, then look for the line that looks like:
+ * -------------------------------------------------------------
+ * mongodb://<user>:<password>@staff.mongohq.com:10056/node-test
+ * ---------|     |-|        |------------------|    |-|       |
+ *           USER    PASSWORD                    PORT   DB NAME
+ *
+ * ALSO, for testing, you should manually add a document and collection into MongoHQ
+ * from their "Add a Collection" > "Add a Document" links, then below we'll log it.
+ */
+app.db = mongoose.connect('mongodb://tuckbick:hackdayftw123@staff.mongohq.com:10097/twitter-top-40');
+
+//Controllers
+app.controllers = require('./controllers')(app);
+
+>>>>>>> 5605bf43b66ae34ed06a1cf006c178556322309b
 // Routes
 app.get("/", function(req, res){
 
@@ -76,6 +96,7 @@ app.get("/", function(req, res){
     title: "Twitter Top 40"
   });
 });
+
 
 //Init
 app.listen(3000);
