@@ -1,6 +1,7 @@
 var express = require('express'),
     EventEmitter = require('events'),
     mongoose = require('mongoose'),
+    sys = require("util"),
     app = module.exports = express.createServer();
 
 // Configuration
