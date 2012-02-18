@@ -2,16 +2,27 @@
 html(lang="en")
   head
     title= title
-    link(rel='stylesheet', href='/public/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/public/bootstrap/css/bootstrap-responsive.min.css')
-    link(rel='stylesheet', href='/public/css/styles.css')    
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/css/styles.css')    
   body
     header
       nav.navbar.navbar-fixed-top
+        .navbar-inner
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
     .content.container
       h1 Full Top 40
       ol
         li.track.well.span2 track template
         li.track.well.span2 track template
     footer Copyright
-    script(type='text/javascript', src='/public/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/jquery.min.js')
+    script(type='text/javascript', src='/js/jquery.ui.min.js')
+    script(type='text/javascript', src='/js/jquery.flip.min.js')
+    script(type='text/javascript', src='/js/interactions.js')
+        
+        
