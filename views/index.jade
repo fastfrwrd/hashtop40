@@ -31,9 +31,7 @@ html(lang="en")
     .content.container
       h1 Full Top 40
       ol
-        li.track.well.span2 
-          each track in tracks
-            include track
+        include populate
     footer= copyright
       p Legendary programming quad-force: 
         a(href='http://www.github.com/tuckbick') Tucker Bickler

@@ -13,7 +13,9 @@ window.interactions = window.interactions || (function ($) {
     
     var populateTracks = function(tracks) {
     	var list = $('<ol></ol>'),
-    		html = ""; //build from jade
+    		html = $.ajax({
+    			data: tracks
+    		}); //build from jade
     	
 		// populate html with track infos
 		if($('ol').length) {
@@ -27,6 +29,7 @@ window.interactions = window.interactions || (function ($) {
 	var updateTracks = function(tracks) {
 		// iterate through tracks
 		// id compare
+		// flip em baby!
 	}
 
     return {
