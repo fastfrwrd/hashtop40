@@ -17,8 +17,7 @@ h1 {
 
 /* track style */
 .track {
-	margin-right: 1em;
-	float: left;
+
 }
 
 	.track .album-art {
@@ -48,14 +47,6 @@ h1 {
 	padding:0px;
 	overflow:hidden;
 }
-	.album-art .cover { 
-		margin: 0px; 
-		padding: 0px; 
-	}
-	.album-art a:hover .cover { 
-		cursor: pointer;
-		margin-bottom: -60px;
-	}
 footer{
     text-align: center;
 }

@@ -15,16 +15,16 @@ window.interactions = window.interactions || (function ($) {
     
 		var tracks = $.map(tracks, function(n, i) {
 			return { 
-			  songurl:"http://open.spotify.com", //replace with twitter url
-			  coverurl:n.image[1]['#text'],
-			  trackname:n.name,
-			  artistname:n.artist.name,
+			  songurl:n.url, //replace with twitter url
+			  coverurl:n.img,
+			  trackname:n.title,
+			  artistname:n.artist,
 			}
 		});
 		console.log(tracks);
 		var $list = $('<ol></ol>');
 		for(i in tracks) {
-		  $list.append('<li class="track well span2"><div class="album-art"><a href="' + tracks[i].songurl + '"><img src="' + tracks[i].coverurl + '" /><img src="/img/controls.png" /></a><div class="track-name"> ' + tracks[i].trackname + '</div><div class="artist-name">' + tracks[i].artistname + '</div></div></li>');
+		  $list.append('<li class="track well span1"><div class="album-art"><a href="' + tracks[i].songurl + '"><img class="cover" src="' + tracks[i].coverurl + '" /></a><div class="track-name"> ' + tracks[i].trackname + '</div><div class="artist-name">' + tracks[i].artistname + '</div></div></li>');
 		}
 		$('ol').replaceWith($list);
 	};
