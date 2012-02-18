@@ -1,8 +1,3 @@
-module.export = function(app) {
-
-  var models = {
-    Song: require('Song')(app)
-  };
-
-  return models;
+module.exports = {
+    Song: require('./Song').Song
 };

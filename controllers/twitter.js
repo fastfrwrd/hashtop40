@@ -1,7 +1,9 @@
-module.exports = function(app) {
+var Song = require('../models').Song,
+      Twitter = require('ntwitter'),
+      LastFMNode = require('lastfm').LastFmNode;
 
-  var Song = require('../models').Song,
-      Twitter = require('ntwitter');
+
+module.exports = function(app) {
 
   var twitter = new Twitter({
     consumer_key: process.env.TWITTER_KEY,
@@ -16,10 +18,55 @@ module.exports = function(app) {
 
       tweet = body ? body.match(/^#nowplaying ([^\–]+) – ([^\–]+) on #Spotify[\s]?(.+)$/i) : false;
 
-      if(tweet && tweet.length > 2) {
-        console.log(tweet[1]);
+      if(tweet && tweet.length > 3) {
+        QueryLastFM(tweet[1], tweet[2], function(err, data) {
+          if(err) {
+            console.log('ERROR: ' + err.message);
+          }
+          else {
+            //Save the song in the db
+            var obj = {
+              title: data.track.name,
+              artist: data.track.artist.name,
+              url: data.track.url
+            };
+            if(data.track.album && data.track.album.image) {
+              obj.img = data.track.album.image[0]['#text'];
+            }
+
+            Song.create(obj, function(err, song) {
+              if(!err && song) {
+                app.EventEmitter.emit('song:new', song);
+              }
+            });
+          }
+        });
       }
     });
   });
 
 };
+
+
+function QueryLastFM(artist, title, callback) {
+  var lastfm = new LastFMNode({
+    api_key    : 'ed4a5a62952f9741457ff27aea2a4d6b',
+    secret : '9f2d205135022a26172c4c32c6349e6d'
+  });
+
+  lastfm.request('track.getInfo', {
+    artist: artist,
+    track: title,
+    handlers: {
+      success: function(data) {
+        console.log(data);
+        return callback(null, data);
+      },
+      error: function(error) {
+        console.log(error);
+        return callback(error);
+      }
+    }
+  });
+
+}
