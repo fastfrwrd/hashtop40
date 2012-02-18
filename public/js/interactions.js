@@ -21,21 +21,12 @@ window.interactions = window.interactions || (function ($) {
 			  artistname:n.artist.name,
 			}
 		});
-		tracks = { tracks: tracks };
-		console.log();
-    	
-		$.ajax({
-			url: '/populate',
-			data: tracks,
-			success: function(data) {
-				if($('ol').length) {
-					$('ol').replaceWith(data);
-				} else {
-					$('.content').html(data)
-				}
-			}
-		});
-		
+		console.log(tracks);
+		var $list = $('<ol></ol>');
+		for(i in tracks) {
+		  $list.append('<li class="track well span2"><div class="album-art"><a href="' + tracks[i].songurl + '"><img src="' + tracks[i].coverurl + '" /><img src="/img/controls.png" /></a><div class="track-name"> ' + tracks[i].trackname + '</div><div class="artist-name">' + tracks[i].artistname + '</div></div></li>');
+		}
+		$('ol').replaceWith($list);
 	};
 
 

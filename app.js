@@ -53,21 +53,7 @@ app.get("/", function(req, res){
   // Render the layout
   res.render('index', {
     title: "twitterfy",
-    tracks: [],
     copyright: copyright,
-  });
-});
-
-app.get("/populate", function(req, res){
-  // Render the layout
-  res.render('populate', {
-    tracks: req.tracks,
-  });
-});
-
-app.get("/track", function(req, res){
-  res.render('track', {
-    tracks: req.track,
   });
 });
 
