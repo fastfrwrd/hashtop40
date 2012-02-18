@@ -1,0 +1,58 @@
+/* tag styles */
+h1 {
+	margin-bottom: 10px;
+}
+
+/* general styles */
+
+.content {
+	background: white
+	border: #dceccc;
+	padding: 10px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/* track style */
+.track {
+	margin-right: 1em;
+	float: left;
+}
+
+	.track .album-art {
+		display: block;
+		margin: 5px auto;
+	}
+	
+	.track .play-button-wrapper {
+		
+	}
+	
+		.track .play-button-wrapper .play-button {
+			background-image: url(https://s-static.ak.facebook.com/rsrc.php/v1/yJ/r/DjEKSAvSbgi.png);
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			display: block;
+			position: relative;
+			margin-top: -50%;
+			left: -50%;
+			width: 30px;
+			height: 30px;
+		}
+		
+.album-art { 
+	width:100px;  /* Width of image */
+	height:100px; /* Height of image */
+	padding:0px;
+	overflow:hidden;
+}
+	.album-art .cover { 
+		margin: 0px; 
+		padding: 0px; 
+	}
+	.album-art a:hover .cover { 
+		cursor: pointer;
+		margin-bottom: -60px;
+	}
