@@ -12,10 +12,12 @@ module.exports = function(app) {
 
   twitter.stream('statuses/filter', { track: '#spotify' }, function(stream) {
     stream.on('data', function (data) {
-      var tweet = data.text.match(/^#nowplaying ([^\–]+) – ([^\–]+) on #Spotify[\s]?(.+)$/mi);
+      var body = data.text;
 
-      if(tweet.length > 2) {
-        console.log('WE GOT IT: ');
+      tweet = body ? body.match(/^#nowplaying ([^\–]+) – ([^\–]+) on #Spotify[\s]?(.+)$/i) : false;
+
+      if(tweet && tweet.length > 2) {
+        console.log(tweet[1]);
       }
     });
   });
