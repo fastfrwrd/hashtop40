@@ -30,10 +30,7 @@ html(lang="en")
                     input.search-query.span2(type='text', placeholder='Filter by genre')
     .content.container
       h1 Full Top 40
-      ol
-        li.track.well.span2 
-          each track in tracks
-            include track
+      include populate
     footer Copyright
     script(type='text/javascript', src='/js/jquery.min.js')
     script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
