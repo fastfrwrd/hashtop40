@@ -36,7 +36,7 @@ module.exports = function(app) {
 
             Song.create(obj, function(err, song) {
               if(!err && song) {
-                app.EventEmitter.emit('song:new', song);
+                app.EventEmitter.emit('songs:refresh', song);
               }
             });
           }
