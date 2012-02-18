@@ -1,5 +1,5 @@
 var express = require('express'),
-    EventEmitter = require('events'),
+    EventEmitter = require('events').EventEmitter,
     mongoose = require('mongoose'),
     app = module.exports = express.createServer();
 
@@ -35,7 +35,11 @@ app.configure('production', function(){
  * ALSO, for testing, you should manually add a document and collection into MongoHQ
  * from their "Add a Collection" > "Add a Document" links, then below we'll log it.
  */
-app.db = mongoose.connect('mongodb://tuckbick:hackdayftw123@staff.mongohq.com:10097/twitter-top-40');
+app.db = mongoose.connect('mongodb://user:testing@staff.mongohq.com:10097/twitter-top-40');
+
+
+//A wild eventemitter has appeared
+app.EventEmitter = new EventEmitter();
 
 //Controllers
 app.controllers = require('./controllers')(app);
