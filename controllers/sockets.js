@@ -1,7 +1,11 @@
 module.exports = function(app) {
 
   app.socket.on('connection', function(socket) {
-    //Client Events
+    
+    //console.log('asdf\n');
+    // emit all tracks on connection
+    //socket.emit('tweet:all', { tracks: [] })
+
   });
 
 };
