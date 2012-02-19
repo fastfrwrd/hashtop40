@@ -21,7 +21,6 @@ window.interactions = window.interactions || (function ($) {
 			  artistname:n.artist,
 			}
 		});
-		console.log(tracks);
 		var $list = $('<ol></ol>');
 		for(i in tracks) {
 		  $list.append('<li class="track well span2"><div class="album-art"><a href="' + tracks[i].songurl + '"><img class="cover" src="' + tracks[i].coverurl + '" /></a><div class="track-name"> ' + tracks[i].trackname + '</div><div class="artist-name">' + tracks[i].artistname + '</div></div></li>');
