@@ -42,10 +42,10 @@ h1 {
 		}
 		
 .album-art { 
-	width:100px;  /* Width of image */
 	height:100px; /* Height of image */
 	padding:0px;
 	overflow:hidden;
+	text-align: center;
 }
 footer{
     text-align: center;
