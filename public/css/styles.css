@@ -11,42 +11,27 @@ h1 {
 	padding: 10px;
 }
 
-.clearfix {
-	clear: both;
+footer{
+    text-align: center;
+}
+
+ol li {
+	overflow: hidden;
 }
 
 /* track style */
 .track {
-
+	min-height: 140px;
 }
 
 	.track .album-art {
 		display: block;
 		margin: 5px auto;
+		padding: 0px;
+	    text-align: center;
 	}
 	
-	.track .play-button-wrapper {
-		
-	}
-	
-		.track .play-button-wrapper .play-button {
-			background-image: url(https://s-static.ak.facebook.com/rsrc.php/v1/yJ/r/DjEKSAvSbgi.png);
-			background-repeat: no-repeat;
-			background-position: 0 0;
-			display: block;
-			position: relative;
-			margin-top: -50%;
-			left: -50%;
-			width: 30px;
-			height: 30px;
-		}
-		
-.album-art { 
-	height:100px; /* Height of image */
-	padding:0px;
-	overflow:hidden;
-	text-align: center;
-}
-footer{
-    text-align: center;
-}
+		.track .album-art .cover {
+			width: 64px;
+			height: 64px;
+		}	

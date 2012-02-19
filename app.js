@@ -37,24 +37,26 @@ app.configure('production', function(){
  */
 app.db = mongoose.connect('mongodb://user:testing@staff.mongohq.com:10097/twitter-top-40');
 
-
 //A wild eventemitter has appeared
 app.EventEmitter = new EventEmitter();
 
 //Controllers
 app.controllers = require('./controllers')(app);
+var songModel = mongoose.model('Song');
 
 // Routes
-
-//dummy tracks
-var copyDate = new Date();
-var copyright = "&copy; Copyright " + copyDate.getFullYear() + ".";
 app.get("/", function(req, res){
   // Render the layout
+  var copyDate = new Date();
   res.render('index', {
     title: "twitterfy",
-    copyright: copyright,
+    copyright: "&copy; Copyright " + copyDate.getFullYear() + ".",
   });
+});
+
+app.get("/refresh", function(req, res) {
+  app.EventEmitter.emit('songs:refresh');
+  res.send("refreshed!");
 });
 
 //Init
