@@ -43,10 +43,14 @@ ol {
 		font: italic 1em Georgia, Times, serif;
 		font-size: 23px;
   		position: absolute;
-  		top: 5px;
-  		left: 10px;
+  		
   		color: #bbb;
 	}
+	
+		.track .rank.rank-current {
+			top: 5px;
+  			left: 10px;
+		}
 	
 		.track .rank.rank-change {
 			bottom: 2px;
@@ -64,7 +68,7 @@ ol {
 /* media queries */
 @media only screen and (max-width: 600px) {
 
-	.container.content {
+	.container-fluid.content {
 		margin: 0px;
 		padding: 0px;
 	}

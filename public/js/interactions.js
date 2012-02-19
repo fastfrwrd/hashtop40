@@ -12,11 +12,14 @@ window.interactions = window.interactions || (function ($) {
 		        if(tracks[i].url !== $(el).find('a').attr('href')) {
 		        	$(el).flip({
 						direction: "lr",
-						color: '#f5f5f5',
+						color: '',
 						content: formatTrack(tracks[i], parseInt(i)+1),
 						speed: 500,
+						onEnd: function() {
+							$(el).css('background','');
+							trackRankChange($(el), (initTracks[tracks[i]._id] - parseInt(i)+1));
+						}
 					});
-					trackRankChange($(this), (initTracks[tracks[i]._id] - parseInt(i)+1));
 		        }
 		    });
 		} else {
@@ -31,7 +34,7 @@ window.interactions = window.interactions || (function ($) {
 	};
 
 	var formatTrack = function(track, rank) {
-		return '<div class="rank">' + rank + '</div><div class="album-art"><a href="' + track.url + '" target="_blank"><img class="cover" src="' + track.img + '" /><div class="track-name"> ' + track.title + '</div></a><div class="artist-name">' + track.artist + '</div></div>';
+		return '<div class="rank rank-current">' + rank + '</div><div class="album-art"><a href="' + track.url + '" target="_blank"><img class="cover" src="' + track.img + '" /><div class="track-name"> ' + track.title + '</div></a><div class="artist-name">' + track.artist + '</div></div>';
 	};
 	
 	var trackRankChange = function($track, rankDifference) {
@@ -55,6 +58,8 @@ window.interactions = window.interactions || (function ($) {
     return {
         bind: bind,
         populateTracks: populateTracks,
+        formatTrack: formatTrack,
+        trackRankChange: trackRankChange
     };
 
 })(jQuery);
