@@ -42,7 +42,6 @@ app.EventEmitter = new EventEmitter();
 
 //Controllers
 app.controllers = require('./controllers')(app);
-var songModel = mongoose.model('Song');
 
 // Routes
 app.get("/", function(req, res){
