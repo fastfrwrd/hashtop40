@@ -8,7 +8,6 @@ window.interactions = window.interactions || (function ($) {
 		if($('.content ol').length > 0) {
 		    $('ol li').each(function(i, el) {
 		        if(tracks[i].url !== $(el).find('a').attr('href')) {
-		            console.log('change at ' + i);
 		        	$(el).flip({
 						direction: "lr",
 						color: '#f5f5f5',
