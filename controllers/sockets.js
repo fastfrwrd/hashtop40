@@ -6,7 +6,7 @@ module.exports = function(app) {
   function EmitSongs(socket) {
     Song
     .find()
-    .desc('rating')
+    .desc('rating', '_id')
     .limit(40)
     .run(function(err, songs) {
         if(!err && songs) {
