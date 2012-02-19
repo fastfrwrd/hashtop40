@@ -66,7 +66,6 @@ function QueryLastFM(artist, title, callback) {
         return callback(null, data);
       },
       error: function(error) {
-        console.log(error);
         return callback(error);
       }
     }
