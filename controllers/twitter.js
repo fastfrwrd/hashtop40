@@ -16,7 +16,7 @@ module.exports = function(app) {
     stream.on('data', function (data) {
       var body = data.text;
 
-      tweet = body ? body.match(/^#nowplaying ([^\–]+) – ([^\–]+) on #Spotify[\s]?(.+)$/i) : false;
+      var tweet = body ? body.match(/^#nowplaying ([^\–]+) – ([^\–]+) on #Spotify[\s]?(.+)$/i) : false;
 
       if(tweet && tweet.length > 3) {
         QueryLastFM(tweet[1], tweet[2], function(err, data) {
@@ -32,6 +32,9 @@ module.exports = function(app) {
             };
             if(data.track.album && data.track.album.image) {
               obj.img = data.track.album.image[0]['#text'];
+            }
+            else {
+              obj.img = '/img/kitten.jpeg';
             }
 
             Song.create(obj, function(err, song) {
