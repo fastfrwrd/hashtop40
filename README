@@ -1,0 +1,12 @@
+to install:
+
+1. have Spotify
+2. (step about environment variables here)
+3. create symlink to your app folder for spotify
+  $ mkdir ~/Spotify
+  $ ln -s path/to/hashtop40/app hashtop40
+4. startup the node (NOTE: I'm using a nodeenv for local development https://github.com/ekalinin/nodeenv)
+  (from the hashtop40 directory)
+  $ node ./src/app.js
+5. go to Spotify and search spotify:app:hashtop40
+6. VOILA
