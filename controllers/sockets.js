@@ -18,7 +18,9 @@ module.exports = function(app) {
   app.socket.sockets.on('connection', function(sock) {
 
   //Bootstrap client
-  EmitSongs(sock);
+  sock.on('connected', function() {
+    EmitSongs(sock);
+  });
 
   app.EventEmitter.on('songs:refresh', function() {
     EmitSongs(sock);
