@@ -35,3 +35,7 @@ Icon?
 Thumbs.db
 *.swp
 *.swo
+
+# My ignores #
+##############
+env

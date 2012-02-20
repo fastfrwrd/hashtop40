@@ -1,0 +1,15 @@
+{
+	"BundleType": "Application",
+	"AppIcon": {
+		"36x18": "twitter-top-40.png"
+	},
+	"AppName": {
+		"en": "Twitter Top 40"
+	},
+	"SupportedLanguages": [
+		"en"
+	],
+	"RequiredPermissions": [
+		"http://localhost:3000" //add the appropriate domain here
+	]
+}
