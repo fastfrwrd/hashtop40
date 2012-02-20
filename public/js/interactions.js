@@ -17,7 +17,11 @@ window.interactions = window.interactions || (function ($) {
 						speed: 500,
 						onEnd: function() {
 							$(el).css('background','');
-							trackRankChange($(el), (initTracks[tracks[i]._id] - parseInt(i)+1));
+							if(initTracks[tracks[i]._id]) {
+							    trackRankChange($(el), (parseInt(initTracks[tracks[i]._id]) - parseInt(i) - 1));
+							} else {
+								trackRankChange($(el));
+							}
 						}
 					});
 		        }
@@ -26,7 +30,7 @@ window.interactions = window.interactions || (function ($) {
 		    var $list = $('<ol></ol>');
 		    for(i in tracks) {
 		      $list.append('<li class="track well span2">' + formatTrack(tracks[i], parseInt(i)+1) + '</li>');
-		      initTracks[tracks[i]._id] = i+1;
+		      initTracks[tracks[i]._id] = parseInt(i)+1;
 		    }
 		    $('.content').append($list);
 		}
@@ -39,11 +43,16 @@ window.interactions = window.interactions || (function ($) {
 	
 	var trackRankChange = function($track, rankDifference) {
 		var type;
-		if (rankDifference > 0) {
+		if(rankDifference == null) {
+			type = "success";
+			rankDifference = "new!";
+		}
+		else if (parseInt(rankDifference) > 0) {
 		    type = "success";
 		    rankDifference = "+"+rankDifference;
 		} else {
 			type = "danger";
+			rankDifference = "";
 		}
 		$track.addClass('alert-' + type).append('<span class="rank rank-change ' + type + '">' + rankDifference + '</div>');
 		setTimeout(function() {
@@ -58,8 +67,7 @@ window.interactions = window.interactions || (function ($) {
     return {
         bind: bind,
         populateTracks: populateTracks,
-        formatTrack: formatTrack,
-        trackRankChange: trackRankChange
+        initTracks: initTracks
     };
 
 })(jQuery);
