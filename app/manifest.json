@@ -1,10 +1,10 @@
 {
 	"BundleType": "Application",
 	"AppIcon": {
-		"36x18": "twitter-top-40.png"
+		"36x18": "hashtop40.png"
 	},
 	"AppName": {
-		"en": "Twitter Top 40"
+		"en": "#top40"
 	},
 	"SupportedLanguages": [
 		"en"
