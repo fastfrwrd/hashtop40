@@ -24,6 +24,7 @@ app.configure('production', function(){
 });
 
 //Mongo connect
+var mongoAuth = process.env.MONGOHQ_USER + ':' + process.env.MONGOHQ_PASS;
 app.db = mongoose.connect('mongodb://user:testing@staff.mongohq.com:10097/twitter-top-40');
 
 //A wild eventemitter has appeared
