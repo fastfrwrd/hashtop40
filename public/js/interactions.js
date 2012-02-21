@@ -74,4 +74,11 @@ window.interactions = window.interactions || (function ($, templates) {
 
 $(document).ready(function() {
   window.interactions.bind();
+
+  //Fetch all tracks (hack for heroku)
+  $.get('/tracks',function(data) {
+    if(!data.error) {
+      return window.interactions.populateTracks(data);
+    }
+  });
 });
