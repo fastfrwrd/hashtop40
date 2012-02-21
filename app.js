@@ -1,6 +1,7 @@
 var express = require('express'),
     EventEmitter = require('events').EventEmitter,
     mongoose = require('mongoose'),
+    Song = require('./models').Song,
     app = module.exports = express.createServer();
 
 // Configuration
@@ -43,9 +44,15 @@ app.get("/", function(req, res){
   });
 });
 
-app.get("/refresh", function(req, res) {
-  app.EventEmitter.emit('songs:refresh');
-  res.send("refreshed!");
+app.get("/tracks", function(req, res) {
+  Song.all(function(err, songs) {
+    if(err) {
+      res.json({ error: err });
+    }
+    else {
+      res.json(songs);
+    }
+  });
 });
 
 //Init

@@ -35,5 +35,15 @@ Song.statics.create = function(data, callback) {
   });
 };
 
+Song.statics.all = function(callback) {
+  this.find()
+    .desc('rating', '_id')
+    .limit(40)
+    .run(function(err, songs) {
+      if(err) return callback('Error fetching songs');
+      return callback(null, songs);
+    });
+};
+
 
 exports.Song = mongoose.model('Song', Song);
