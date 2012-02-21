@@ -53,8 +53,8 @@ module.exports = function(app) {
 
 function QueryLastFM(artist, title, callback) {
   var lastfm = new LastFMNode({
-    api_key    : 'ed4a5a62952f9741457ff27aea2a4d6b',
-    secret : '9f2d205135022a26172c4c32c6349e6d'
+    api_key    : process.env.LAST_FM_KEY,
+    secret : process.env.LAST_FM_SECRET
   });
 
   lastfm.request('track.getInfo', {
@@ -62,7 +62,6 @@ function QueryLastFM(artist, title, callback) {
     track: title,
     handlers: {
       success: function(data) {
-        console.log(data);
         return callback(null, data);
       },
       error: function(error) {

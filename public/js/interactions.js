@@ -6,7 +6,6 @@ window.interactions = window.interactions || (function ($) {
     
     var populateTracks = function(tracks) {
 		var $list = $('<ol id="current-list"></ol>');
-		console.log()
 		for(i in tracks) {
 		  $list.append(formatTrack(tracks[i], parseInt(i)+1));
 		}
@@ -49,33 +48,7 @@ window.interactions = window.interactions || (function ($) {
 	};
 
 	var formatTrack = function(track, rank) {
-		return '<li class="track well span2" data-id="' + track._id + '">' +
-			'<div class="rank rank-current">' + rank + '</div>' + 
-			  '<div class="album-art">' + 
-				'<a href="' + track.url + '" target="_blank">' + 
-				  '<img class="cover" src="' + track.img + '" />' + 
-				  '<div class="track-name"> ' + track.title + '</div>' + 
-				'</a>' + 
-			  '<div class="artist-name">' + track.artist + '</div>' + 
-			'</div>' +
-		  '</li>';
-	};
-	
-	var trackRankChange = function($track, rankDifference) {
-		if(rankDifference == null) {
-			rankDifference = "new!";
-		}
-		else if (parseInt(rankDifference) > 0) {
-		    rankDifference = "+"+rankDifference;
-		}
-		$track.addClass('alert-information').append('<span class="rank rank-change ' + type + '">' + rankDifference + '</div>');
-		setTimeout(function() {
-			$track.animate({
-				backgroundColor: "#f5f5f5"
-			}, 1000, function() {
-				$track.removeClass('alert-information');
-			});
-		}, 5000);
+	    return Mustache.to_html(templates.Song, { rank: rank, track: track });
 	};
 	
     return {
@@ -84,8 +57,15 @@ window.interactions = window.interactions || (function ($) {
         replaceTrack: replaceTrack,
     };
 
-})(jQuery);
+}).call(this, jQuery, templates);
 
 $(document).ready(function() {
-	window.interactions.bind();
+  window.interactions.bind();
+
+  //Fetch all tracks (hack for heroku)
+  $.get('/tracks',function(data) {
+    if(!data.error) {
+      return window.interactions.populateTracks(data);
+    }
+  });
 });
