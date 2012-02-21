@@ -29,7 +29,7 @@ html(lang="en")
                   form.navbar-search.pull-left(action='')
                     input.search-query.span2(type='text', placeholder='Filter by genre')
     .content.container-fluid
-      h1 Twitterfy Top 40
+      include populate
     footer= copyright
       p Legendary programming quad-force: 
         a(href='http://www.github.com/tuckbick') Tucker Bickler
@@ -41,10 +41,11 @@ html(lang="en")
         a(href='http://wwww.github.com/chasiepoo') Chase Coney
     script(type='text/javascript', src='/js/jquery.min.js')
     script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
-    script(src='/socket.io/socket.io.js', type='application/javascript')
+    script(type='application/javascript', src='/socket.io/socket.io.js')
     script(type='text/javascript', src='/js/sockets.client.js')
     script(type='text/javascript', src='/js/jquery.ui.min.js')
-    script(type='text/javascript', src='/js/jquery.flip.min.js')
+    script(type='text/javascript', src='/js/jquery.easing.js')
+    script(type='text/javascript', src='/js/jquery.quicksand.js')
     script(type='text/javascript', src='/js/jquery.color.js')
     script(type='text/javascript', src='/js/interactions.js')
         

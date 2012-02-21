@@ -1,6 +1,7 @@
-.album-art
-  a(href=track.songurl)
-    img.cover(src=track.coverurl)
-    img.controls(src="/img/controls.png")
-.track-name= track.trackname
-.artist-name= track.artistname
+li.span2.well.track(data-id=track._id)
+  .album-art
+    a(href=track.songurl)
+      img.cover(src=track.coverurl)
+      img.controls(src="/img/controls.png")
+  .track-name= track.trackname
+  .artist-name= track.artistname

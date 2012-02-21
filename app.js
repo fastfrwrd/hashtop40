@@ -48,8 +48,9 @@ app.get("/", function(req, res){
   // Render the layout
   var copyDate = new Date();
   res.render('index', {
-    title: "twitterfy",
+    title: "#top40",
     copyright: "&copy; Copyright " + copyDate.getFullYear() + ".",
+    tracks: false,
   });
 });
 
