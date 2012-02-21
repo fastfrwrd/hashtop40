@@ -1,7 +1,7 @@
 var socket = io.connect();
 
-socket.on('connected', function() {
-  socket.emit('connected');
+socket.on('connect', function() {
+  socket.emit('connect');
 });
 
 socket.on('songs:refresh', function(data) {
