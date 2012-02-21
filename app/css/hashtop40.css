@@ -1,0 +1,117 @@
+/* tag styles */
+h1 {
+	margin-bottom: 10px;
+}
+
+footer{
+    text-align: center;
+}
+
+ol {
+	margin: 0px;
+}
+
+/* general styles */
+
+.content {
+	background: white;
+	border: #dceccc;
+	padding: 10px;
+}
+
+.navbar .brand {
+	margin-left: 0px;
+}
+
+.navbar-inner {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00B9F2), to(#00A0D1));
+}
+
+.navbar-search .search-query {
+	background: rgba(12, 12, 12, 0.9);
+}
+
+.navbar-search .search-query:hover {
+	background: rgba(60, 60, 60, 0.5);
+}
+
+.navbar-search .search-query:focus, .navbar-search .search-query.focused {
+    background: #ffffff;
+}
+
+/* track style */
+.track {
+	margin: 0px 12px 12px 0px;
+	overflow: hidden;
+	height: 140px;
+	position: relative;
+}
+
+	.track .album-art {
+		display: block;
+		margin: 5px auto;
+		padding: 0px;
+	    text-align: center;
+	}
+	
+		.track .album-art .cover {
+			width: 64px;
+			height: 64px;
+		}	
+	
+	.track .rank {
+		font: italic 1em Georgia, Times, serif;
+		font-size: 23px;
+  		position: absolute;
+  		
+  		color: #bbb;
+	}
+	
+		.track .rank.rank-current {
+			top: 5px;
+  			left: 10px;
+		}
+	
+		.track .rank.rank-change {
+			bottom: 2px;
+			right: 5px;
+		}
+	
+		.track .rank.danger {
+			color: #B94A48;
+		}
+		
+		.track .rank.success {
+			color: #468847;
+		}
+		
+/* media queries */
+@media only screen and (max-width: 600px) {
+
+	.container-fluid.content {
+		margin: 0px;
+		padding: 0px;
+	}
+		
+		.content h1 {
+			margin-left: 10px;
+		}
+	
+    .track {
+    	width: 100%;
+    	margin: 0px;
+    	border-collapse: collapse;
+    	border-bottom-left-radius: 0px;
+    	border-bottom-right-radius: 0px;
+    	border-top-left-radius: 0px;
+    	border-top-right-radius: 0px;
+    	height: 100px;
+    }
+    
+        .track .album-art {
+    		text-align: left;
+    		position: absolute;
+    		top: 10px;
+    		left: 50px;
+        }
+}

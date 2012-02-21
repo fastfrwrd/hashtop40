@@ -12,51 +12,49 @@
 	padding: 9px 0;
   }
   </style>
-  <link rel="stylesheet" href="src/public/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="src/public/bootstrap/css/bootstrap-responsive.css">
-  <link rel="stylesheet" href="src/public/css/styles.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="css/hashtop40.css">
 </head>
 <body>
   <header>
 	<nav class="navbar navbar-fixed-top">
 	  <div class="navbar-inner">
-		<div class="container-fluid">
-		  <a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </a>
-		  <a href="#" class="brand">Twitter Top 40</a>
-		  <div class="nav-collapse">
-			<div class="nav">
-			  <li>
-				<form action="" class="navbar-search pull-left">
-				  <input type="text" placeholder="Filter by genre" class="search-query span2">
-				</form>
-			  </li>
-			</div>
+		<div class="container">
+		  <span class="brand">#top40</span>
+		  <div class="nav">
+			<li>
+			  <form action="" class="navbar-search pull-left">
+				<input type="text" placeholder="Filter by genre" class="search-query span2">
+			  </form>
+			</li>
 		  </div>
 		</div>
 	  </div>
 	</nav>
   </header>
   <div class="content container-fluid">
-	<h1>Twitter Top 40</h1>
   </div>
   <ol>
-  
+  <!-- init values -->
   </ol>
   <footer>
 	&copy; Copyright 2012.
 	<p>Legendary programming quad-force: <a href="http://www.github.com/tuckbick">Tucker Bickler</a>, <a href="http://www.github.com/fastfrwrd">Paul Marbach</a>, <a href="http://www.github.com/vanetix">Matt McFarland</a>, and <a href="http://wwww.github.com/chasiepoo">Chase Coney</a></p>
   </footer>
-  <script type="text/javascript" src="src/public/js/jquery.min.js"></script>
-  <script type="text/javascript" src="src/public/bootstrap/js/bootstrap.min.js"></script>
-  <script type="application/javascript" src="src/public/socket.io/socket.io.js" ></script>
-  <script type="text/javascript" src="src/public/js/sockets.client.js"></script>
-  <script type="text/javascript" src="src/public/js/jquery.ui.min.js"></script>
-  <script type="text/javascript" src="src/public/js/jquery.color.js"></script>
-  <script type="text/javascript" src="src/public/js/interactions.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+  <!--
+  todo: replace with a server address
+  <script type="application/javascript" src="public/socket.io/socket.io.js" ></script>
+  -->
+  <script type="text/javascript" src="public/js/sockets.client.js"></script>
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+    sp = getSpotifyApi(1); 
+    hashtop40 = sp.require('hashtop40'); 
+    hashtop40.init();
+  });
+  </script>
 </body>
 </html>
 
